@@ -1,4 +1,4 @@
-# Stellar
+# Vstellar
 Low-Code AI Testing Automation
 
 Stellar is a comprehensive automation framework designed to streamline software testing across various domains, including UI, API, performance, mobile, and database testing. 
