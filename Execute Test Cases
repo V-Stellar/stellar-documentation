@@ -1,0 +1,72 @@
+Test cases in vStellar Test can be executed either through the runner file or via the terminal. Additionally, if the user wants to integrate Continuous Integration/Continuous Deployment (CI/CD), they can automate the execution of these test cases through the terminal. This allows the test cases to be triggered automatically in CI/CD pipelines, ensuring smooth and consistent testing as part of the development process.
+ 
+Running Test Cases via Runner File
+ 
+To run test cases written in vStellar Test, you'll need to include the appropriate tag in the runner file. The runner file is responsible for executing the test scripts within each module, and it should be configured with the necessary settings, including the tags for specific tests. Here’s how the runner file setup works:
+
+"--activeTags", "@Regression",
+"--featureFilePath", "src/main/resources/Features/UI",
+"--stepDefPath", "com.vaf.steps", "com.example.ui.stepdef"
+activeTags are the tags that you’ll add to run a test case.
+
+In this example, the provided tag is “@Regression” , so the runner will pick only the scenarios under the @Regression tag and will run them when executed.
+
+featureFilePath is the location of the feature file that is present within the project. You can add multiple feature files by providing the path of other feature files in “comma-separated” format.
+
+stepDefPath is the path of step definition. It will stay unchanged until the user creates their own step definition.
+
+The runner files will be available on the following path, or as set up while creating the project: ProjectName/src/main/java/Runners/
+
+In the “Runners” folder, you’ll need to add UI, API, Performance, Accessibility, and Mobile sub-folders. Each folder will have its runner file.
+
+Running Test Cases from the Terminal
+ 
+You can also run tests from the command line or terminal. Make sure that the JAR file has been added. The following command will run the project.
+
+mvn exec:java "-Dexec.mainClass=Runners.UI.UI" -Dexec.args=-activeTags @asadsaad -headless false -incognito true -ParallelFeatures true -activeEnvironment Development" -X
+User can override following,
+ 
+activeTags
+headless
+incognito
+ParallelFeatures
+activeEnvironment
+
+Note: The example of all above parameters are provided in code snippet. If user wants to skip overriding of any parameter, user can remove from command.
+ 
+How to Add the Path of Runner Class In the Above Line?
+ 
+Let’s say that the path to the runner is “Runners/UI/UI/java”, you will write the path in dot(s) form. Forward slashes ('/') will replace the dots ('.'), and remove “.java” from the path. This is a relative path of that file. So, the path will be “Runners.UI.UI” for the above example path (Runners/UI/UI/java)
+ 
+Notes: If you are running test cases from the project (Inside any IDE e.g. IntelliJ), provide a path from the Runners directory. The path will start from the Runners directory. e.g. if the actual path is “src/main/java/Runners/UI/UI.java“ then you will provide only “Runners.UI.UI” 
+
+If you are running test cases from the terminal or Command line from the root directory of the project, then a complete path will be required e.g. if the actual path is “src/main/java/Runners/UI/UI.java“ then only provide “src.main.java.Runners.UI.UI” 
+For running test cases from the root, the user needs to go to the root directory them open the terminal at that location.
+ 
+How to Add/Pass Tags In the Above Line?
+ 
+You can add multiple tags, like @Regression and @Smoke etc. It is mandatory to add the sign “@” before the tag name.
+
+You can only use logical operators in small letters, like 
+
+"@Smoke and @Sanity" 
+
+"@Smoke or @Sanity"
+
+"not @Sanity" 
+
+You cannot use in capital letters like 
+
+“@Smoke AND @Sanity"
+
+“@Smoke And @Sanity"
+
+"@Smoke OR @Sanity"
+
+"@Smoke Or @Sanity"
+
+"NOT @Sanity"
+ 
+How to Pass the Environment In the Above Line?
+ 
+Only one environment can be given at a time. For instance; Development, QA or Production.
