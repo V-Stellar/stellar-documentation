@@ -1,0 +1,7 @@
+vStellar Test provides a robust framework for assertions in UI, API, Performance, Accessibility, and Mobile testing, offering various types of assertions to ensure that the application under test behaves as expected. Below is an overview of how vStellar Test provides assertions based on the provided document:
+
+UI Assertions
+API Assertions
+Performance Assertions
+Accessibility Assertions
+Mobile Assertions
