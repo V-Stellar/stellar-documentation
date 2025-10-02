@@ -1,0 +1,248 @@
+The Stellar QA Automation Framework uses a centralized configuration file, “config.json,” to streamline and manage critical parameters such as environment settings, logging/reporting, and parallel execution. By centralizing these settings, Stellar allows dynamic configuration of the testing environment, logging options, and parallel execution parameters, significantly improving the testing process's flexibility and scalability.
+
+This section provides a detailed breakdown of the key settings within the “config.json” file. These settings are essential for configuring the test environments, setting up logging/reporting, optimizing parallel execution, and more. Each configuration option, such as browser type, reporting tools, environment settings, and retry mechanisms, can be easily modified to tailor the testing process to specific requirements.
+
+By understanding these configurations, you can effectively customize and enhance the behavior of the Stellar framework for your testing needs. Below is a comprehensive explanation of the default parameters provided in the configuration file, along with their descriptions, data types, and possible values.
+ 
+More Detail of configurations
+
+activeEnv
+Description: This setting indicates which environment (such as Development, Production, QA, etc.) is currently active. When a user wants to navigate to a specific server in a feature file, this setting directs them to the server based on the selected environment.
+Data Type: String
+Possible Values: Development, Production, QA, etc.
+
+EnableVerboseReporting
+Description: This setting manages the generation of three types of reports: Extent Report, Allure Report, and Report Portal Reporting. If User set EnableVerboseReporting to "false," none of these reports will be generated. If set to "true," then user has the option to selectively enable or disable each of these reports according to their needs.
+Data Type: Boolean
+Possible Values: true, false
+
+EnableExtentReport
+Description: Controls extent reporting. If user wants Extent Report, then it needs to be set true otherwise false.
+Data Type: Boolean
+Possible Values: true, false
+
+EnableReportPortal (premium)
+Description: Controls Report Portal integration. If user wants Report Portal reporting, then it needs to be set true otherwise false.
+Data Type: Boolean
+Possible Values: true, false
+
+EnableAllureReport
+Description: Controls Allure reporting. If user wants Allure Report, then it needs to be set true otherwise false.
+Data Type: Boolean
+Possible Values: true, false
+
+Browser
+Description: Specifies the browser to be used. User can run test cases on four supported browsers. These browsers are helpful for UI and Accessibility Testing.
+Data Type: String
+Possible Values: chrome, edge, firefox, and safari.
+
+headless
+Description: Controls whether the browser runs in headless mode.
+Data Type: Boolean
+Possible Values: true, false
+
+incognito
+Description: Opens the automation script in a private browser.
+Data Type: Boolean
+Possible Values: true, false
+
+ActivePlatform
+Description: Runs all test cases on the specified platform (AWS, SauceLabs, or BrowserStack). User can pass only object name (SauceLabs, AWS, and BrowserStack. These objects are defined below.
+Data Type: String
+Possible Values: SauceLabs, AWS, BrowserStack
+
+BrowserStack
+Description: This configuration contains the credentials used to run test cases on BrowserStack.
+Configuration Fields:
+
+Username: The username for BrowserStack.
+Password: The password for BrowserStack.
+ExcelKey: The key used for accessing Excel data on BrowserStack.
+ 
+Example:
+
+"BrowserStack": { 
+  "Username": "username-of-browser-stack", 
+  "Password": "password-of-browser-stack", 
+  "ExcelKey": "excel-key" 
+}
+Read more About how to create BrowserSatck account creation and getting credentials that are required above.
+For ExcelKey please visit and scroll to excel section of Browser Stack.
+
+AWS
+Description: This configuration contains the credentials used to run test cases on AWS.
+Configuration Fields:
+Username: The username for AWS.
+Password: The password for AWS.
+ExcelKey: The key used for accessing Excel data on AWS.
+Arn: The Amazon Resource Name (ARN) key.
+ 
+Example:
+
+"AWS": {
+  "Username": "username for AWS", 
+  "Password": "password for AWS", 
+  "ExcelKey": "excel key", 
+  "Arn": "arn key" 
+}
+Read more About how to create AWS account creation and getting credentials that are required above.
+For ExcelKey please visit and scroll to excel section of AWS.
+
+
+SauceLabs
+Description: This configuration contains the credentials used to run test cases on SauceLabs.
+Configuration Fields:
+Username: The username for SauceLabs.
+Password: The password for SauceLabs.
+ExcelKey: The key used for accessing Excel data on SauceLabs.
+ 
+Example:
+
+"sauceLabs": { 
+  "Username": "username of sauceLabs", 
+  "Password": "password of sauceLabs", 
+  "ExcelKey": "excel key" 
+}
+Read more About how to create Sauce Lab account creation and getting credentials that are required above.
+For ExcelKey please visit and scroll to excel section of SauceLabs.
+
+ 
+ParallelFeatures
+Description: If user set it to true, then all feature files will be run in parallel mode.If user wants to run more than one feature file in parallel, then user will provide path to all feature files in Runner class. Read more how to use Parallel execution on Features Level.
+Data Type: Boolean
+Possible Values: true, false
+Note: The user cannot enable ParallelFeatures=true for iterative API testing scenarios, as they are sending multiple requests with varying request data.
+
+ParallelScenarios
+Description: If user set it to true, then all scenarios of a feature file will run in parallel mode. User can run all scenarios of singe feature file at a time. Read more how to use Parallel execution on Scenario Level.
+Data Type: Boolean
+Possible Values: true, false
+Note: The user cannot enable ParallelScenarios=true for iterative API testing scenarios, as they are sending multiple requests with varying request data
+
+ThreadCount
+Description: Specifies the thread count to run scenarios in parallel. If user set it to 5, then 5 scenarios will run in parallel. Then all scenarios will be picked in chunk of 5.
+Data Type: Number
+Possible Values: 1 to n (number)
+
+EnableRetryOnFailure
+Description: Enables retry on failure. When user set it to true then if test case get fail, vStellar Test will rerun test cases again. The rerun will depends upon the key, “RetryCount”. If user set it to 3, then three times execution will perform.
+Data Type: Boolean
+Possible Values: true, false
+
+RetryCount
+Description: Specifies the number of retries on failure.
+Data Type: Number
+Possible Values: 0 to n (number)
+
+RetryTime
+Description: Specifies the time interval for retries. When user wants to use “EnableRetryOnFailure” then ”RetryTime” will define the interval, how much delay will be in next execution after failure.
+Data Type: Number
+Possible Values: any time duration
+
+browserPath
+Description: Used to run the script in previous versions of the browser.
+Data Type: String
+Possible Values: any browser path
+
+defaultInputFormat
+Description: Specifies the default data format for providing locators. Supported formats are excel, csv and json. Read more on what format is supported in which module.
+Data Type: String
+Possible Values: csv, excel, json
+
+inputFormat
+Description: Overrides defaultInputFormat if set (Excel or CSV or Json).
+Data Type: String
+Possible Values: csv, excel, json
+
+connectTimeout
+Description: Specifies the connection timeout in milliseconds. Read more about connect timeout.
+Data Type: Number
+Possible Values: any time duration
+
+readTimeout
+Description: Specifies the read timeout in milliseconds. Read more about read timeout.
+Data Type: Number
+Possible Values: any time duration
+
+mobileDevice
+Description: Specifies the platform name for mobile module only. If user set “android“ then reset cases will run on android. If user set to “ios” then testing will be peformed in iOS only.
+Data Type: String
+Possible Values: android, ios
+
+selfHeal
+Description: f you set the value to “true” then the self healing feature will get enable for automatically fetching  the changed locators to avoid failing the test cases.
+Data Type: Boolean
+Possible Values: true, false
+
+MobileActivePlatform
+Description: Specifies the active platform for mobile testing. User can use “native” or “webview” at a time. Native view is used when user will run test in native apps using Android studio or Xcode. Webview will be used when users wants to run test cases on browser (chrome for android & safari for iOS).
+Data Type: String
+Possible Values: SauceLabs, AWS, BrowserStack
+
+AssertionType
+Description: Specifies the type of assertion (Soft or Hard). Soft assertions will allow driver to execute all test steps written in test case or scenario. Hard assertions will stop execution if any test step get fail due to any reason. Read more how to use soft assertions in vStellar Test.
+Data Type: String
+Possible Values: Soft, Hard
+
+defaultPerformanceReportName (premium)
+Description: Default name of performance reports. This name will be append with time stamp to differentiate a report with other reports.
+Data Type: String
+Possible Values: any name user specified
+
+reportPortal_url (premium)
+Description: URL for ReportPortal.
+Data Type: String
+Possible Values: http://localhost:8080/ui/#login
+
+license_key
+Description: Licensing key for vStellar Test. User will specify the valid licenses key, which can be acquired to use vStellar Test for testing.
+Data Type: String
+Possible Values: valid license key
+
+waitTimeOut
+Description: Timeout for Implicit and Explicit wait. This is default wait time which will be used to wait for visibility of any element or other operations.
+Data Type: Number
+Possible Values: any time duration
+
+activeAppender
+Description: This key can contain three possible values. If user sets “console” then logs will only print in console. If user sets “file” then logs will only print in file. If user sets “both” then logs will print in both console and file.
+Data Type: String
+Possible Values: console, file and both only.
+
+logLevel
+Description: This key will decide the priority of log levels.
+Data Type: String
+Possible Values: high, medium and low only.
+
+Environment Configurations
+User can set up “n“ number of environments based on need. Just for sack of example, one environment is set up to show how user can configure environments using vStellar Test for testing.
+
+Development
+Description: Contains settings specific to the development environment. User will create an object in json format. Then object name can be any, in example we have “Development“ This is parent object for all servers that user need in development environment. Then inside this parent object user will create another child object based on number of server required in testing. The name of child server is “Internet_Heroku" in example below. Inside this object user will create key value pairs for a server. Key is “baseURI" and value is “https://the-internet.herokuapp.com". “baseURI“ is the keyword of vStellar Test. User cannot change this keyword. Then same process is followed for “n” number of servers inside Environment. The last server is “default”, which will be used if user does not use any server for navigation in feature file, then default server will be used for navigation.
+
+Example:
+
+"Development": {
+    "Internet_Heroku": {
+      "baseURI": "https://the-internet.herokuapp_dev.com"
+    },
+    "Heroku": {
+      "baseURI": "https://herokuapp_dev.com"
+    },
+    "ReportPortal": {
+      "baseURI":"http://18.208.134.1"
+    },
+    "default": {
+      "baseURI":"http://18.208.134.2"
+    }
+}
+"QA": {
+    "Internet_Heroku": {
+      "baseURI": "https://the-internet.herokuapp_qa.com"
+    },
+    "Heroku": {
+      "baseURI": "https://herokuapp_qa.com"
+    }
+  }
+Environments
+Description: These settings suggest that the configuration can be switched between different environments (e.g., Development and QA) by changing the value of activeEnv. Depending on the active environment, the application may use different base URIs . Users can specify any number of environments and servers.
