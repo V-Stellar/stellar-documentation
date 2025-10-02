@@ -1,0 +1,102 @@
+To write a test case in vStellar Test, you need to follow the Gherkin syntax, which is structured and user-friendly for both technical and non-technical users. Here's the step-by-step process to write a vStellar Test test case:
+
+Explanation:
+ 
+Given: Describes the initial state or preconditions before the test begins. (e.g., User is on the login page)
+When: Represents the action or event that triggers the behavior being tested. (e.g., User enters valid credentials)
+Then: Indicates the expected outcome or result of the action. (e.g., User is redirected to the dashboard)
+And, But: Used to add additional steps or conditions to the scenario, enhancing clarity.
+
+Example:
+ 
+Feature: Login Functionality
+Scenario: Successful login
+Given I am on the login page
+When I enter valid credentials
+And I click the login button
+Then I should be redirected to the dashboard
+And I should see a welcome message
+
+In this example:
+ 
+Feature: Defines the feature under test.
+Scenario: Describes a specific test scenario.
+Given: Sets up the initial context (e.g., being on the login page).
+When: Triggers the action (e.g., entering valid credentials).
+Then: Specifies the expected outcome (e.g., being redirected to the dashboard and seeing a welcome message).
+And: Add additional steps or conditions to the scenario, enhancing readability and expressiveness.
+
+Note:
+
+One feature file can have more than one scenario.
+User can use any keyword “GIVEN, WHEN, THEN, AND for any test step” depending upon their preference and understanding.
+
+Tags:
+ 
+Organize features and scenarios. Users can add tags (@regression, @smoke, etc.) by adding '@' sign with tag name, before the scenario. These tags can be used to run test cases.
+Consider the following example using vStellar Test:
+
+@important
+  Scenario: User navigates and click on element
+    Given User navigates to URL 'URL'
+    Then User clicks on element 'sheetName.locatorName'
+@smoke
+  Scenario: User navigates and will see element
+    Given  User navigates to URL 'URL'
+    Then User verifies the element 'sheetName.locatorName' is visible
+A feature or scenario can have as many tags as you like.
+
+In Scenario Outline, you can use tags on different examples like below and you can add multiple values under examples like in example below.
+
+Example
+@mobile
+Scenario Outline: Check Zipcode field validation
+    When User navigates to URL 'http://www.example.com'
+    And User enters text "<zipcode>" in input field 'ExcelSheetName.locatorName'
+    Then User verifies the element "ExcelSheetName.locatorName" text should be "<zipcodeMessage>"
+    Then User close the browser window
+    Examples:
+      |zipcode|zipcodeMessage|
+      |800  |Zip code is invalid|
+      |80000|Zip code is valid|
+The Background is used to repeat the same steps before every scenario(s) present in that feature file.
+
+Use the Background tag to repeat common setup steps before every scenario in a feature file.
+
+Feature: Automation script for 'Features' page of vStellar Test site.
+#  In this way we can use Background tag to run same steps, written under background tag, before every scenario.  
+  Background: This will be used to initialize the browser, maximize browser and wait for 1 sec
+    Given User navigates to URL 'URL'
+    And User maximizes the browser window
+    Then User waits for <1000> milliseconds
+  @Examples
+  Scenario: Validate title of page is correct
+    Given User verifies the element 'sheet.locatorName' is visible
+    And User clicks on element 'sheet.locatorName'
+    Then User closes the browser window
+Ignoring scenarios
+ 
+You can tell vStellar Test to ignore scenarios with a particular tag:
+
+ public static void main(String[] args) throws MissingPropertiesException {
+        String[] defaultRunnerArgs = {
+                "--activeTags", "not @Smoke",
+                "--featureFilePath", "src/main/resources/Features/UI",
+                "--stepDefPath", "com.vaf.steps", "com.example.ui.stepdef"
+        };
+        RunnerInterchange.initializeAndRun(args, defaultRunnerArgs);
+    }
+
+Tag expressions
+ 
+
+Expression	Description
+@fast	Scenarios tagged with @fast
+@wip and not @slow	Scenarios tagged with @wip that aren’t also tagged with @slow
+@smoke and @fast	Scenarios tagged with both @smoke and @fast
+@gui or @database	Scenarios tagged with either @gui or @database
+ 
+
+For even more advanced tag expressions you can use parenthesis for clarity, or to change operator precedence:
+
+(@smoke or @ui) and (not @slow)
