@@ -1,0 +1,215 @@
+The vStellar IntelliJ Plugin is designed to simplify and accelerate your software testing workflow directly within the IntelliJ IDEA environment. With an easy-to-use interface, you can set up and run tests without modifying the vStellarConfig.json or runner files. It's the perfect low-code solution for faster and smarter testing.
+
+With an intuitive interface, built-in test runner, and powerful features like the Spy tool, vStellar Test brings a low-code solution to high-efficiency test automation. Whether you are running UI, API, mobile testing, or reporting, the plugin centralizes everything in one place.
+
+This documentation will guide you through the installation, configuration, and use of the plugin to its fullest potential.
+
+Installation and First-Time Setup
+
+Open IntelliJ IDEA.
+Click the gear icon (⚙️) in the top-right corner of the IntelliJ IDE.
+
+Scroll to Plugins option and click on it. 
+
+Click on the Marketplace tab.
+
+Search for vStellar in search bar.
+
+Click Install on the vStellar plugin.
+
+Wait for the installation to finish, then click on Apply followed by OK.
+
+When you open IntelliJ for the first time after installing the plugin, a pop-up guide will appear to help you get started with vStellar Test. This guide covers the essential steps, including:
+
+Defining locators in the vStellar Test framework
+Setting up and using service endpoints
+Creating test cases in a feature file
+Configuring test parameters in the vStellarConfig.json file
+Specifying tags in the runner file
+ 
+The pop-up includes navigation options, allowing you to move through each step at your own pace.
+
+Next Button: Move through the steps sequentially.
+
+Finish Button: Once all steps are completed, the pop-up will not appear again.
+
+Previous Button: Go to previous steps. 
+
+Skip Button: Skip the guide entirely.
+
+"Don't Show Again" Checkbox: Prevent the pop-up from appearing again in the future.
+
+vStellar Test IntelliJ Plugin Features
+ 
+After closing the pop-up guide, you'll find the vStellar icon in the IntelliJ side toolbar. Clicking this icon opens a side tool window with multiple options to configure and run your tests efficiently.
+Note: Changes made through the plugin do not update the values in the vStellarConfig.json file. Instead, they temporarily override these parameters for the current build execution.
+
+Build Config Tab
+
+The Build Config tab lets you select a runner file and configure key parameters for test execution. It simplifies the setup process by allowing you to update essential configuration values directly within the plugin.
+
+The available options in the Build Config tab include:
+
+1. Runner Files Dropdown
+
+Automatically fetches all available runner files in the project, regardless of location or name.
+You can simply select the runner file you want to use for test execution.
+ 
+
+Runner File Creation
+
+If you don’t have a runner file yet, you can easily create one using the vStellar Plugin.
+Simply click the + Add Runner File button located below the Testing Type dropdown. 
+
+This opens a popup where you can configure the necessary settings to create a new runner file. Once created, the runner file will be automatically added to your open project.
+
+The popup contains the following fields and options:
+
+Testing Type (Dropdown)
+Select the type of testing solution for which you want to create the runner file.
+Available options include:
+UI
+Web
+API
+Mobile
+
+Runner File Name (Input Field)
+Enter a name for the runner file.
+
+Input Rules:
+
+Only alphabetic characters (A–Z, a–z) are allowed.
+Special characters and numbers are not permitted to ensure valid class naming conventions
+ 
+Select Directory (Directory Picker)
+Choose the directory where the runner file should be created.
+
+Note: Select only a folder within the src/ directory, ideally the designated Runner folder.
+Add Tags (Input Field)
+Add tags for the runner file.
+
+Note:
+Users can specify test execution tags, such as @Smoke or @Regression.
+Logical operators like AND, OR, and , can be used (e.g., @Smoke AND @Sanity).
+ 
+Select Feature File (Single-Select Dropdown)
+Choose a feature file to associate with the runner.
+
+Displays a list of all feature files in the project
+Only one file can be selected at a time through the UI
+ 
+Note:
+To include multiple feature files, you can manually edit the runner file after it's created.
+Use absolute paths in the file. For relative paths, manual adjustment will be required.
+
+Actions
+
+✅ Save and Add
+
+Creates the runner file with the specified configuration in the project.
+Automatically selects the newly created file in the plugin for further actions.
+ 
+❌ Cancel / Close
+
+Closes the popup.
+Discards all unsaved settings.
+ 
+2. Select Tags Field
+ 
+Users can specify test execution tags, such as @Smoke or @Regression.
+Logical operators like AND, OR, and , can be used (e.g., @Smoke AND @Sanity).
+ 
+3. Browser Dropdown
+ 
+vStellar Test supports the following browsers:
+
+Chrome
+Firefox
+Edge
+Internet Explorer
+Opera
+Safari
+Users can select their preferred browser for test execution.
+
+4. Active Environment Selection
+ 
+Dynamically fetches all environments defined in the config.json file.
+Example environments: QA, Development, Production, Staging, UAT.
+Users can select the target environment for test execution.
+
+5. Thread Count
+ 
+Users can specify the number of parallel execution threads.
+Must be a positive integer (e.g., 1, 2, 3, etc.).
+
+6. Parallel Execution Options
+ 
+Parallel Features Checkbox: Runs feature files in parallel if checked, otherwise runs serially.
+
+Parallel Scenarios Checkbox: Runs scenarios in parallel if checked, otherwise runs serially.
+
+7. Headless Mode
+
+Headless Checkbox: If checked, tests execute in headless browser mode (no UI).
+
+8. Private Browsing
+
+Private Browsing Checkbox: If checked, tests run in a private/incognito browser window.
+
+9. Save and Run Button
+ 
+Provides an option to save configurations and immediately run tests from the plugin interface.
+ 
+10. Reset Button
+This button will reset all set parameters.
+
+11. Feature File Navigation
+
+A Feature Files Button is present on the left sidebar of the vStellar Test Plugin.
+Hovering over the button displays a tooltip: Navigate to feature file.
+ 
+Clicking the button opens a tab named Feature Files, displaying a scrollable list of all feature files in the existing project.
+
+Allows users to view and manage feature files directly from the plugin.
+The list of feature files updates dynamically based on the opened project.
+Users can select a feature file, and it will appear in the IntelliJ editor for editing.
+A Refresh Button is available at the top to fetch the latest feature file list in the project.
+
+12. Runner Files Navigation
+ 
+A Runner Files Button is present on the left sidebar of the vStellar Test Plugin.
+Hovering over the button displays a tooltip: Navigate to runner files.
+ 
+Clicking the button opens a tab named Runner Files, displaying a scrollable list of all feature files in the existing project.
+Allows users to view and manage runner files directly from the plugin.
+The list of runner files updates dynamically based on the opened project.
+Users can select a runner file, and it will appear in the IntelliJ editor for editing.
+A Refresh Button is available at the top to fetch the latest runner file list in the project.
+ 
+13. Spy | Auto Fetch Locator
+ 
+The Spy feature in the plugin helps you fetch UI element locators (ID, CSS Selector, XPath) for your automated testing—right from within your IDE.
+
+How to Use the Spy Feature
+
+Go to the Spy Tab.
+
+Enter the URL
+In the Spy tab, enter the web page URL you want to test in the field labeled "URL".
+
+Start the Spy Session
+Click the "Start" button located within the URL field. This opens a the website in the IDE, allowing you to interact with the web page as users would. 
+
+Interact and Select Elements
+Navigate the page in the pop-up. When you find a UI element whose locator you need, simply press Alt + Click on the element.
+
+This action will automatically fetch the locator(s) and populate them in the locator fields below:
+ID
+CSS Selector
+XPath
+ 
+Copy Locators
+Each locator field includes a Copy icon. Click it to copy the corresponding locator to your clipboard.
+
+End the Spy Session
+When you're done, click the "End Session" button.
