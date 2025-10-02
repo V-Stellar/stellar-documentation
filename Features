@@ -1,0 +1,12 @@
+vStellar Test provides robust capabilities for automation, allowing you to enhance your test execution efficiency through parallel execution, flexible input formats, and advanced retry mechanisms.
+
+With vStellar Test, you can:
+
+Run parallel executions for tests, optimizing your testing speed.
+Leverage CSV and JSON input for comprehensive testing.
+Utilize a global retry mechanism to re-run failed tests automatically.
+Implement soft assertions for a more resilient test execution process.
+Configure global headers, cookies, and path parameters for a simplified and consistent test setup.
+Abort test execution based on predefined conditions for critical failure handling.
+ 
+Each of these features is standalone, enabling users to adapt vStellar Test to their specific environments and testing needs. Whether you are aiming for improved test coverage, faster executions, or more reliable results, vStellar Test has the tools to help you achieve your automation goals effortlessly.
