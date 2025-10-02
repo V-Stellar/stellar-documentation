@@ -1,0 +1,18 @@
+vStellar Test provides a comprehensive set of pre-built keywords and steps to streamline UI, API, performance, accessibility, and mobile testing. These methods enable users to define and execute test steps in a structured and reusable manner, facilitating efficient automation. Each keyword corresponds to a specific action or operation, such as interacting with UI elements, making API requests, handling browser events, and more. By leveraging these keywords, testers can develop robust test cases, ensuring consistent behavior across different modules and enhancing test coverage.
+ 
+The next pages provide the details of keywords and methods vStellar Test facilitates.
+ 
+UI Testing
+Methods for interacting with UI elements, validating elements, handling browser windows, and performing actions like clicks, text entry, and scrolling.
+
+API Testing
+Methods to send HTTP requests (GET, POST, PUT, DELETE etc.), validate responses and manage API endpoints and parameters.
+
+Performance Testing
+Methods to test the system's performance under load, measuring response times, handling multiple concurrent users, and analyzing resource utilization.
+
+Accessibility Testing
+Methods to verify the accessibility of web elements, ensuring that UI components comply with accessibility standards.
+
+Mobile Testing
+Methods to test mobile applications, including interactions with mobile elements, validating mobile-specific behaviors, and testing on different platforms (iOS, Android).
