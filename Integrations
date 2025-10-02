@@ -1,0 +1,18 @@
+vStellar Test provides integrations with various systems and services to enhance automation and streamline testing processes. 
+
+1. CI/CD Integration
+vStellar Test integrates with CI/CD pipelines, allowing users to automate test execution as part of their continuous integration and delivery workflows. This is done through a command-line interface that enables running specific test classes, filtering by tags, and specifying the environment for testing.
+
+2. Database Integration
+vStellar Test supports connectivity with various databases, enabling interaction and validation of database content during tests. Supported databases include:
+PostgreSQL
+MySQL
+Oracle
+SQL Server
+MongoDB
+ 
+3. Third-Party Execution Platforms
+vStellar Test integrates with popular third-party tools for executing tests in remote environments. This allows for testing on a variety of platforms and devices without the need to maintain infrastructure in-house.
+Sauce Labs
+BrowserStack
+AWS 
