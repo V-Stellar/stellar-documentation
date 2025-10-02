@@ -1,0 +1,18 @@
+Before diving into the setup of the vStellar Test Framework, it’s crucial to ensure that your system meets the necessary prerequisites. Properly preparing your environment will guarantee a smooth and efficient installation, setting you up for successful automation testing across different domains.
+
+What You Need Before Installing vStellar Test
+
+To install and run vStellar Test effectively, you'll need to have a few essential tools and software components ready on your system. Here’s a quick overview of what you'll need:
+
+Java Development Kit (JDK): vStellar Test requires the latest version of JDK to run its Java-based framework. Make sure you have JDK installed and configured on your machine.
+Apache Maven: Maven is essential for managing project dependencies and building automation within vStellar Test. You’ll need to download and set up Maven correctly to streamline the testing process.
+Git (Version Control System):
+Git is crucial for version control, especially when working in a collaborative environment . Ensure Git is installed and properly configured on your system.
+Integrated Development Environment (IDE): An IDE like IntelliJ IDEA (recommended), Eclipse, or Visual Studio Code is necessary for writing and managing your vStellar Test test scripts. Choose an IDE that best suits your workflow.
+System Compatibility: vStellar Test runs on systems compatible with Maven, JDK, and a modern IDE. While there are no strict hardware requirements, having a system with at least 4 GB of RAM and adequate disk space is advisable for optimal performance.
+
+Why These Prerequisites Matter
+
+Ensuring these prerequisites are in place before you start the installation process will save you time and help avoid common issues. Having the latest JDK , Git and Maven versions, along with a properly configured IDE, provides a solid foundation for using vStellar Test's advanced features. With the right setup, you’ll be able to create, execute, and manage test cases seamlessly.
+In the upcoming sections, we’ll walk you through the step-by-step installation and configuration of each of these prerequisites to get you started with vStellar Test.
+ 
