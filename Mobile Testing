@@ -1,0 +1,16 @@
+To harness vStellar's mobile testing capabilities, ensure your system is equipped with the following essential tools:
+
+For Android:
+Android Studio: The official integrated development environment (IDE) for Android app development.
+
+For iOS:
+Xcode: The official IDE for iOS app development.
+
+For Both Android and iOS:
+Appium: A popular open-source automation framework for mobile apps.
+Appium Inspector: A valuable tool for inspecting and interacting with mobile app elements.
+
+Additional Prerequisites:
+JDK & Maven: Visit JDK & Maven download and install guide.
+
+Note:  If the above sequence is not strictly followed, issues may occur.
